@@ -1,0 +1,106 @@
+﻿
+@{
+    ViewBag.Title = "Main";
+    Layout = "~/Views/Shared/_homePage.cshtml";
+}
+<style>
+    .ifont{
+        font-size:12px;
+    }
+
+</style>
+<div class="clearfix"></div>
+    <div class="row">
+    <div style=" margin-right:30%;">
+         <p style="font-weight:bold; margin-top:40px; margin-bottom:20px; padding:10px;">UNOCHA Phone Bill Appliction</p>
+        <table class="table table-bordered table-condensed table-striped">
+
+            <thead>
+                <tr>
+                    <td class="h_title">
+                        Employee Section
+                    </td>
+                    <td class="h_title">
+                        Admin Section
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:50%;">
+                    <table class="table table-bordered table-striped">
+                            <tr>
+                                <td>
+                                    @Html.ActionLink("Supervisors Inbox", "Index", "Inbox")  (<i class="ifont">Details about new messages and requests</i>)
+                                </td>
+                            </tr>
+                        <tr>
+                            <td>
+                                @Html.ActionLink("Staff Inbox", "empIndex", "Inbox")  (<i class="ifont">Details about new messages and requests</i>)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.ActionLink("Identify Official and Personal Calls", "GroupMyCalls", "Bills")
+                            </td>
+                        </tr>
+                            <tr>
+                                <td>
+                                    @Html.ActionLink("My Personal Numbers List", "Index", "PersonalNumbers")  ( <i class="ifont">Find and update your personal numbers list</i>)
+                                </td>
+                            </tr>
+                         
+                            <tr>
+                                <td>
+                                    @Html.ActionLink("My Personal Call Cost", "MyPersonalCallCost", "Bills")
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    @Html.ActionLink("My Phone Bill", "CalculateAllCalls", "Bills")
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td style="width:20%;">
+                        <table class="table table-bordered table-striped">
+                            <tr>
+                                <td>
+                                    @Html.ActionLink("Supervisors", "Index", "Supervisors")
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>
+                                    @Html.ActionLink("Employees", "Index", "Employees")
+                                </td>
+                               
+                            </tr>
+                            <tr>
+                                <td>
+                                    @Html.ActionLink("Years", "Index", "FYears")
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;&nbsp;</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+            </thead>
+
+
+        </table>
+
+
+    </div>
+</div>
+

@@ -1,0 +1,26 @@
+﻿@model PhoneBill.ViewModels.PersonalNumberVM
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h4>Are you sure you want to remove this bellow number from personal numbers list?</h4>
+<div>
+   
+    <hr />
+  <span style="background:#ffd800; border-radius:5px; padding:5px; margin:5px; font-weight:bold;">Personal Number: @Html.DisplayFor(model => model.PersonalNumber)</span> 
+    <hr />
+
+@using (Html.BeginForm("RemoveFromPersonalConfirmed", "Bills",null, FormMethod.Post,null))
+{
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.Id)
+        <div class="form-actions no-color">
+            <input type="hidden" name="month" id="month" value="@ViewBag.Month" />
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            @Html.ActionLink("Back to List", "GroupMyCalls","Bills")
+        </div>
+    }
+</div>

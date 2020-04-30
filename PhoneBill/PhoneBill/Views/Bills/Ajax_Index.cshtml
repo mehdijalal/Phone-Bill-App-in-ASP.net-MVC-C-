@@ -1,0 +1,40 @@
+﻿@model IEnumerable<PhoneBill.ViewModels.PhoneBillVM>
+<div id="page">
+    <table class="table table-bordered table-hover">
+        <tr>
+            <th>Id</th>
+            <th>Username</th>
+            <th>Full Name</th>
+            <th>Email Addres</th>
+            <th>Calling No</th>
+            <th>Called No</th>
+            <th>Call Duration</th>
+            <th>Call Date</th>
+            <th>Call Time</th>
+            <th>Call Cost</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.UserName</td>
+                <td>@item.FullName</td>
+                <td>@item.EmailAddress</td>
+                <td>@item.CALLING_NUMBER</td>
+                <td>@item.CALLED_NUMBER</td>
+                <td>@item.CALL_DURATION</td>
+                <td>@item.CALL_DATE</td>
+                <td>@item.CALL_TIME</td>
+                <td>@item.CALL_COST</td>
+            </tr>
+        }
+        <tr>
+            <td colspan="10">
+                @Html.Raw(ViewBag.link)
+
+                @ViewBag.Start <i style="color:#ff0000">Of</i>
+                @ViewBag.total_rec
+            </td>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,45 @@
+﻿
+
+@using (Html.BeginForm("GroupMyCalls", "Bills", FormMethod.Post, null))
+{
+    <table class="table" style="margin:0px!important; padding:0px!important">
+        <tr>
+            <td class="thBG">
+
+                <label class="control-label col-md-8">Year:</label>
+
+                <div style="margin:1px;">
+                    @Html.DropDownList("YearOptions", null, htmlAttributes: new { @class = "form-control" })
+                </div>
+
+            </td>
+            <td class="thBG">
+
+                <label class="control-label col-md-8">Month:</label>
+
+                <div style="margin:1px;">
+                    @Html.DropDownList("MonthOptions", null, htmlAttributes: new { @class = "form-control" })
+                </div>
+
+            </td>
+
+            <td class="thBG">
+
+                <label class="control-label col-md-4">Action</label>
+                <div style="margin:1px;">
+                    <input type="submit" value="Search" class="btn btn-danger form-control" />
+                </div>
+
+            </td>
+        </tr>
+    </table>
+}
+
+
+<!--
+*---------Author: Mehdi Jalal
+*---------Email: mehdi.jalal@live.com
+*---------Phone: +93783203070
+*
+-->
+

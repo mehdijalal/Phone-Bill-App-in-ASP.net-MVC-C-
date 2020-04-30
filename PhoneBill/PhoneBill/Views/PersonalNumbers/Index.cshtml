@@ -1,0 +1,42 @@
+﻿@model IEnumerable<PhoneBill.Models.PersonalNumbers>
+
+@{
+    ViewBag.Title = "Personal Numbers";
+}
+
+<h2>Personal Numbers List</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeId)
+        </th>
+        <th>
+            Username
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PersonalNumber)
+        </th>
+ 
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeeId)
+        </td>
+        <td>
+            @User.Identity.Name
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PersonalNumber)
+        </td>
+        <td>
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

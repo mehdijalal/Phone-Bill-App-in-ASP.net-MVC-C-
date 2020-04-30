@@ -1,0 +1,136 @@
+﻿@model IEnumerable<PhoneBill.ViewModels.EmpInboxVM>
+<div id="page">
+    @{
+        ViewBag.Title = "Index";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    <style>
+        .smbtn {
+            margin: 1px !important;
+            padding-top: 1px !important;
+            padding-bottom: 1px !important;
+            padding-left: 3px !important;
+            padding-right: 3px !important;
+        }
+
+        .tyellow {
+            color: #ff6a00;
+        }
+
+        .tred {
+            color: #ff0000;
+        }
+
+        .tgreen {
+            color: #087f0c;
+        }
+    </style>
+    <h2>User Inbox</h2>
+
+
+    <table class="table">
+        <tr>
+            <th>
+                Status
+            </th>
+
+            <th>
+                From
+            </th>
+            <th>
+                Phone Number
+            </th>
+            <th>
+                Bill Year
+            </th>
+            <th>
+                Bill Month
+            </th>
+            <th>
+                Message
+            </th>
+
+            <th>
+                Date Created
+            </th>
+            <th>
+                Date Modified
+            </th>
+            <th style="width:20%">
+                Action
+            </th>
+        </tr>
+
+        @{
+            int i = 1;
+        }
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @if (item.SupStatus == 1)
+                    {
+                        <span class="tyellow">Pending</span>
+                    }
+                    else if (item.SupStatus == 2)
+                    {
+                        <span class="tgreen">Approved</span>
+                    }
+                    else
+                    {
+                        <span class="tred">Rejected</span>
+                    }
+                </td>
+
+                <td>
+                    @item.EmailAddress
+                </td>
+                <td>
+                    @item.EmpPhoneNumber
+                </td>
+                <td>
+                    @item.year
+                </td>
+                <td>
+                    @item.month
+                </td>
+                <td style="width:15%;">
+                    @item.Message
+                </td>
+                <td>
+                    @item.CreatedDate
+                </td>
+                <td>
+                    @item.ModifiedDate
+                </td>
+                <td>
+                    @if (item.SupStatus != 2)
+                    {
+
+                        @Html.ActionLink("Check", "ViewEmployeeCalls", new { inbox_id = item.Id, emp_id = item.FromId, year = item.year, month = item.month }, new { @class = "btn btn-info smbtn" })
+
+                        @Html.ActionLink("Approve", "ApproveBill", new { inbox_id = item.Id }, new { @class = "btn btn-success smbtn" })
+
+                        @Html.ActionLink("Reject", "RejectBillMessage", new { inbox_id = item.Id }, new { @class = "btn btn-danger smbtn" })
+
+                    }
+                    else
+                    {
+                        <span style="color:#4b9f2e">Approved</span>
+                    }
+
+                </td>
+
+            </tr>
+            i++;
+        }
+        <tr>
+            <td colspan="10">
+                @Html.Raw(ViewBag.link)
+
+                @ViewBag.Start <i style="color:#ff0000">Of</i>
+                @ViewBag.total_rec
+            </td>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<PhoneBill.ViewModels.EmployeeVM>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+            Full Name
+        </th>
+        <th>
+            Username
+        </th>
+        <th>
+           Email Address
+        </th>
+        <th>
+           Phone Number
+        </th>
+        <th>
+           Supervisor Name
+        </th>
+        <th>
+           Supervisor Email
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @item.Id
+        </td>
+        <td>
+            @item.FullName
+        </td>
+        <td>
+            @item.UserName
+        </td>
+        <td>
+            @item.EmailAddress
+        </td>
+        <td>
+            @item.PhoneNumber
+        </td>
+        <td>
+           @item.SupervisorName
+        </td>
+        <td>
+           @item.SupervisorEmail
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

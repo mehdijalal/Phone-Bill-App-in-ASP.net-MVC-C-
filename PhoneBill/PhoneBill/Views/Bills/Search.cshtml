@@ -1,0 +1,80 @@
+﻿<div class="table-responsive">
+    @using (Html.BeginForm("Index", "Bills", FormMethod.Post, null))
+    {
+        <table class="table table-bordered">
+            <tr>
+                <td>
+
+                    <label class="control-label col-md-8">Name:</label>
+
+                    <div style="margin:1px;">
+                        @Html.DropDownList("EmployeeOptions", null, htmlAttributes: new { @class = "form-control" })
+                    </div>
+
+                </td>
+                <td>
+
+                    <label class="control-label col-md-8">Phone No:</label>
+
+                    <div style="margin:1px;">
+                        <input type="text" class="form-control" name="PhoneNumber" id="PhoneNumber" />
+
+                    </div>
+                </td>
+                <td>
+
+                    <label class="control-label col-md-8">Date Btw:</label>
+
+                    <div style="margin:1px;">
+                        <input type="text" name="StartDate" id="StartDate" class="form-control datepicker" />
+                    </div>
+
+                </td>
+                <td>
+
+                    <label class="control-label col-md-4">And:</label>
+
+                    <div style="margin:1px;">
+                        <input type="text" name="EndDate" id="EndDate" class="form-control datepicker" />
+
+                    </div>
+                </td>
+                <td>
+
+                    <label class="control-label col-md-4">Status:</label>
+                    <div style="margin:1px;">
+
+                        @Html.DropDownList("StatusOptions", null, htmlAttributes: new { @class = "form-control" })
+                    </div>
+
+                </td>
+                <td>
+
+                    <label class="control-label col-md-4"></label>
+                    <div style="margin-left:1px; margin-top:20%;">
+                        <input type="submit" value="Search" class="btn btn-danger" />
+                    </div>
+
+                </td>
+            </tr>
+        </table>
+    }
+</div>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+                          $(function() {
+                            $( ".datepicker" ).datepicker({
+                              changeMonth: true,
+                              changeYear: true
+                            });
+                          });
+</script>
+
+<!--
+*---------Author: Mehdi Jalal
+*---------Email: mehdi.jalal@live.com
+*---------Phone: +93783203070
+*
+-->

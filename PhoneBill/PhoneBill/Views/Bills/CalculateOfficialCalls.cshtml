@@ -1,0 +1,74 @@
+﻿@model IEnumerable<PhoneBill.ViewModels.PhoneBillVM>
+<div id="page">
+    <style>
+        .MyTable {
+            margin: 1px;
+            padding: 1px;
+        }
+
+            .MyTable td, th, tr {
+                margin: 0;
+                padding: 1px !important;
+            }
+    </style>
+    <div id="Search">
+        @Html.Partial("~/Views/Bills/SearchCalculateMyCalls.cshtml")
+    </div>
+    <table class="table table-bordered table-hover MyTable">
+        <tr>
+            <th>No</th>
+            <th>Calling Number</th>
+            <th>Called No</th>
+            <th>Call Duration</th>
+            <th>Call Date</th>
+            <th>Call Time</th>
+            <th>Call Cost - Total Cost = @ViewBag.Total_PersonalCallCost</th>
+
+        </tr>
+        @{
+            int i = 1;
+        }
+        @using (Html.BeginForm("SavePersonalCalles", "Bills", FormMethod.Post, null))
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@i</td>
+                    <td>@item.CALLING_NUMBER</td>
+                    <td>@item.CALLED_NUMBER</td>
+                    <td>@item.CALL_DURATION</td>
+                    <td>@item.CALL_DATE</td>
+                    <td>@item.CustomTime</td>
+                    <td>@item.CALL_COST</td>
+                </tr>
+                i++;
+            }
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    Official Cost: @ViewBag.TotalOfficial - <br />
+                    Personal Cost: @ViewBag.Total_PersonalCallCost <br />
+                    Total Cost: @ViewBag.TotalCost
+
+                </td>
+                <td>
+                    <input type="hidden" name="mOption" id="mOption" />
+                    <input type="submit" value="Submit to Supervisor" class="btn btn-primary" />
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
+<script>
+    $("#MonthOptions").change(function () {
+        var m = $(this).val();
+        $("#mOption").val = m;
+
+    });
+</script>

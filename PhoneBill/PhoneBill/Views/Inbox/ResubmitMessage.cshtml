@@ -1,0 +1,26 @@
+﻿@model PhoneBill.Models.EmpInbox
+
+@{
+    ViewBag.Title = "Message to supervisor";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("ResubmitBill", "Inbox", FormMethod.Post, null))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.Id)
+    <table class="table table-bordered">
+        <tr>
+            <td>
+                <label class="control-label">Please write a message to your supervisor.</label>
+                @Html.TextAreaFor(model => model.Message, new { @class = "form-control", @cols=150, @rows=20 })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" class="btn btn-info" value="Send" />
+            </td>
+        </tr>
+    </table>
+}

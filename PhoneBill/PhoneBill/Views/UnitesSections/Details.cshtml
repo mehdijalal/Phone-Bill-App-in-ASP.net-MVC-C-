@@ -1,0 +1,67 @@
+﻿@model PhoneBill.Models.UnitesSections
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>UnitesSections</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UnitSectionName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UnitSectionName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SectionHeadEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SectionHeadEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SectionPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SectionPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Extension)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Extension)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FinanceCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FinanceCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Remarks)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Remarks)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

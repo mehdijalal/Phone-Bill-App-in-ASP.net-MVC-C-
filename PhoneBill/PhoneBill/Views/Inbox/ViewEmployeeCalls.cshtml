@@ -1,0 +1,109 @@
+﻿@model IEnumerable<PhoneBill.ViewModels.PhoneBillVM>
+<div id="page">
+    <style>
+        .MyTable {
+            margin: 1px;
+            padding: 1px;
+        }
+
+            .MyTable td, th, tr {
+                margin: 0;
+                padding: 1px !important;
+            }
+
+        .thBG {
+            background: #e0dada;
+        }
+
+            .thBG:hover {
+                background: #e0dada !important;
+            }
+    </style>
+
+    <table class="table table-bordered MyTable">
+        <tr class="thBG">
+            <td class="thBG"></td>
+            <td colspan="4" class="thBG">
+                @Html.Partial("~/Views/Bills/CalculateAllCallsSearch.cshtml")
+            </td>
+            <td class="thBG"></td>
+            <td class="thBG"></td>
+        </tr>
+        <tr>
+            <th>No</th>
+            <th>Calling Number</th>
+            <th>Called No</th>
+            <th>Call Duration</th>
+            <th>Call Date</th>
+            <th>Call Time</th>
+            <th>Call Cost</th>
+
+        </tr>
+        @{
+            int i = 1;
+        }
+        @using (Html.BeginForm("SavePersonalCalles", "Bills", FormMethod.Post, null))
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@i</td>
+                    <td>@item.CALLING_NUMBER</td>
+                    <td>@item.CALLED_NUMBER</td>
+                    <td>@item.CALL_DURATION</td>
+                    <td>@item.CALL_DATE</td>
+                    <td>@item.CustomTime</td>
+                    <td>@item.CALL_COST</td>
+                    <td>
+                        <input type="checkbox" name="PostedPersonalNumbers[]" id="PostedPersonalNumbers[]" value="@item.CALLED_NUMBER" disabled="disabled"
+                               @foreach (var chitem in ViewBag.empPersonalNums) { if (item.CALLED_NUMBER == chitem) { <text> checked="checked" </text>  } } />
+
+                        @foreach (var ritem in ViewBag.empPersonalNums)
+                    {
+                        if (item.CALLED_NUMBER == ritem)
+                        {
+                                <span style="background:#ff0000; color:#ffffff; border-radius:4px; padding:3px;">Personal</span>
+                            }
+                        }
+                    </td>
+                </tr>
+                i++;
+            }
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    @if (ViewBag.CalledNoExist != 1)
+                    {
+
+                        <b>Total Official Cost:</b> @ViewBag.TotalOfficial <br />
+                        <b>Total Personal Cost:</b> @ViewBag.Total_PersonalCallCost <br />
+
+                    }
+
+                    <b>Total Cost:</b> @ViewBag.TotalCost
+
+                </td>
+
+            </tr>
+        }
+        <tr>
+            <td colspan="7">
+
+                @Html.ActionLink("Approve", "ApproveBill", new { inbox_id = ViewBag.Inbox_ID }, new { @class = "btn btn-success smbtn" })
+
+                @Html.ActionLink("Reject", "RejectBillMessage", new { inbox_id = ViewBag.Inbox_ID }, new { @class = "btn btn-danger smbtn" })
+
+
+
+
+            </td>
+        </tr>
+    </table>
+</div>
+
+

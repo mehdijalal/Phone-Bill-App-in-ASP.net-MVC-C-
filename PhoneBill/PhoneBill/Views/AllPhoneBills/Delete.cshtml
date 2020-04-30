@@ -1,0 +1,88 @@
+﻿@model PhoneBill.Models.AllPhoneBill
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>AllPhoneBill</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ACCT_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ACCT_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CALLING_NUMBER)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CALLING_NUMBER)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CALLED_NUMBER)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CALLED_NUMBER)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CALL_DURATION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CALL_DURATION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CALL_DATE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CALL_DATE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CALL_TIME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CALL_TIME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CALL_COST)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CALL_COST)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TAX)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TAX)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

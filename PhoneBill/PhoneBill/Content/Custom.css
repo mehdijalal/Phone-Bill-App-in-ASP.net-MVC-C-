@@ -1,0 +1,37 @@
+﻿    .h_title{
+        background:#222574;
+        color:#ffffff;
+        font-weight:bold;
+    }
+
+       .smbtn {
+            margin: 1px !important;
+            padding-top: 1px !important;
+            padding-bottom: 1px !important;
+            padding-left: 3px !important;
+            padding-right: 3px !important;
+        }
+
+        .tyellow {
+            color: #ff6a00;
+        }
+
+        .tred {
+            color: #ff0000;
+        }
+
+        .tgreen {
+            color: #087f0c;
+        }
+        .tblue{
+            padding:5px;
+            background:#2ebee4;
+            color:#ca2525;
+            border-radius:5px;
+            
+            
+        }
+        .tinbox_title{
+            background:#232272;
+            
+        }
